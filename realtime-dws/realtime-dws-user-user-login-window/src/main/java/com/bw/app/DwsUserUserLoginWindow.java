@@ -43,6 +43,7 @@ public class DwsUserUserLoginWindow extends BaseApp {
         SingleOutputStreamOperator<UserLoginBean> processStream = getProcessStream(etlStream);
         //添加水位线 开窗聚合
         SingleOutputStreamOperator<UserLoginBean> reduceStream = getReduceStream(processStream);
+        reduceStream.print();
         //写入Doris
         reduceStream.map(new DorisMapFunction<>()).sinkTo(FlinkSinkUtil.getDorisSink(Constant.DWS_USER_USER_LOGIN_WINDOW));
     }

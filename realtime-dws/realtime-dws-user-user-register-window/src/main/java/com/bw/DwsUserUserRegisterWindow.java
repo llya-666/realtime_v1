@@ -36,7 +36,7 @@ public class DwsUserUserRegisterWindow extends BaseApp {
 //        etlStream.print();
         //添加水位线 开窗聚合
         SingleOutputStreamOperator<UserRegisterBean> reduceStream = getReduceStream(etlStream);
-//        reduceStream.print();
+        reduceStream.print();
         //写入Doris
         reduceStream.map(new DorisMapFunction<>()).sinkTo(FlinkSinkUtil.getDorisSink(Constant.DWS_USER_USER_REGISTER_WINDOW));
     }

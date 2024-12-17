@@ -51,7 +51,7 @@ public class DwsTradeProvinceOrderWindow extends BaseApp {
         SingleOutputStreamOperator<TradeProvinceOrderBean> mapStream = reduceStream.map(new Synchronous());
         mapStream.print();
         //写入Doris
-//        mapStream.map(new DorisMapFunction<>()).sinkTo(FlinkSinkUtil.getDorisSink(Constant.DWS_TRADE_PROVINCE_ORDER_WINDOW));
+        mapStream.map(new DorisMapFunction<>()).sinkTo(FlinkSinkUtil.getDorisSink(Constant.DWS_TRADE_PROVINCE_ORDER_WINDOW));
     }
 
     /**

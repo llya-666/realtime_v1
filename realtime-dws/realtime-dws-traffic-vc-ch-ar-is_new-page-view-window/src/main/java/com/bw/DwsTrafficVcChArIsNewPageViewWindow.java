@@ -42,8 +42,9 @@ public class DwsTrafficVcChArIsNewPageViewWindow extends BaseApp {
         SingleOutputStreamOperator<TrafficPageViewBean> processStream = getProcessStream(etlStream);
         //根据维度分组聚合
         SingleOutputStreamOperator<TrafficPageViewBean> reduceStream = getReduceStream(processStream);
+        reduceStream.print();
         //写入Doris
-        reduceStream.map(new DorisMapFunction<>()).sinkTo(FlinkSinkUtil.getDorisSink(Constant.DWS_TRAFFIC_VC_CH_AR_IS_NEW_PAGE_VIEW_WINDOW));
+//        reduceStream.map(new DorisMapFunction<>()).sinkTo(FlinkSinkUtil.getDorisSink(Constant.DWS_TRAFFIC_VC_CH_AR_IS_NEW_PAGE_VIEW_WINDOW));
     }
 
     /**

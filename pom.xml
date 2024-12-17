@@ -14,6 +14,7 @@
         <module>realtime-dim</module>
         <module>realtime-dws</module>
         <module>realtime-dwd/realtime-dwd-base-log</module>
+        <module>gmall-api</module>
     </modules>
 
     <properties>

@@ -52,7 +52,7 @@ public class DwsTradeSkuOrderWindow extends BaseApp {
         SingleOutputStreamOperator<TradeSkuOrderBean> mapStream = reduceStream.map(new Synchronous());
         mapStream.print();
         //写到Doris中
-//        mapStream.map(new DorisMapFunction<>()).sinkTo(FlinkSinkUtil.getDorisSink(Constant.DWS_TRADE_SKU_ORDER_WINDOW));
+        mapStream.map(new DorisMapFunction<>()).sinkTo(FlinkSinkUtil.getDorisSink(Constant.DWS_TRADE_SKU_ORDER_WINDOW));
     }
 
     /**

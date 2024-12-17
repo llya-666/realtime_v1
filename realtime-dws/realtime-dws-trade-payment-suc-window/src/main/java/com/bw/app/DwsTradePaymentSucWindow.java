@@ -45,7 +45,7 @@ public class DwsTradePaymentSucWindow extends BaseApp {
         SingleOutputStreamOperator<TradePaymentBean> reduceStream = getReduceStream(processStream);
         reduceStream.print();
         //写入Doris
-//        reduceStream.map(new DorisMapFunction<>()).sinkTo(FlinkSinkUtil.getDorisSink(Constant.DWS_TRADE_PAYMENT_SUC_WINDOW));
+        reduceStream.map(new DorisMapFunction<>()).sinkTo(FlinkSinkUtil.getDorisSink(Constant.DWS_TRADE_PAYMENT_SUC_WINDOW));
     }
 
     /**
