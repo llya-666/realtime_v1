@@ -1,0 +1,1 @@
+j = "D:\\workspace\\Python\\yuekao\\data\rainreduced.csv"
